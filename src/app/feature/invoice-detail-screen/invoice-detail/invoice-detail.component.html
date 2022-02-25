@@ -1,0 +1,27 @@
+<p-card>
+  <p-panel>
+    <ng-template pTemplate="header">
+      Invoice
+    </ng-template>
+    <p-button label="Back" icon="pi pi-check" (click)="navigateToList()"></p-button>
+    <p-button label="Save" icon="pi pi-check" (click)="save()"></p-button>
+    <!-- <p-progressSpinner *ngIf="loading || saving" [style]="{width: '40px', height: '40px'}"></p-progressSpinner> -->
+
+    <p-panel *ngIf="loading else spinner" [showHeader]="false">
+      <div class="p-field p-col-12 p-md-6">
+        <p-skeleton height="3.5rem" [style]="{'margin-top': '0.5rem', 'margin-bottom': '0.5rem'}"></p-skeleton>
+        <p-skeleton height="3.5rem" [style]="{'margin-bottom': '0.5rem'}"></p-skeleton>
+        <p-skeleton height="3.5rem" [style]="{'margin-bottom': '0.5rem'}"></p-skeleton>
+      </div>
+    </p-panel>
+
+    <ng-template #spinner>
+      <p-blockUI [target]="pnl" [blocked]="saving">
+        <i class="pi pi-lock" style="font-size: 3rem"></i>
+      </p-blockUI>
+      <p-panel #pnl [showHeader]="false">
+        <app-invoice-form [invoice]="invoice"></app-invoice-form>
+      </p-panel>
+    </ng-template>
+  </p-panel>
+</p-card>

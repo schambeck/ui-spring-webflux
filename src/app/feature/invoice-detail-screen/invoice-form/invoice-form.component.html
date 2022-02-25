@@ -1,0 +1,14 @@
+  <div *ngIf="invoice" class="p-fluid p-formgrid p-grid">
+    <div class="p-field p-col-12 p-md-6">
+      <label for="id">Id</label>
+      <input id="id" type="text" [(ngModel)]="invoice.id" pInputText>
+    </div>
+    <div class="p-field p-col-12 p-md-6">
+      <label for="issued">Issued</label>
+      <input id="issued" type="text" [(ngModel)]="invoice.issued" pInputText>
+    </div>
+    <div class="p-field p-col-12 p-md-6">
+      <label for="total">Total</label>
+      <input id="total" type="text" [(ngModel)]="invoice.total" pInputText>
+    </div>
+  </div>

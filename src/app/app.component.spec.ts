@@ -23,7 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'ui-spring-webflux'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ui-spring-webflux');
   });
 
   it('should render title', () => {

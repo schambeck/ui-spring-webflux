@@ -1,0 +1,45 @@
+<p-toast></p-toast>
+<p-card>
+  <p-table *ngIf="!loadedFirst else spinner" [value]="fake">
+    <ng-template pTemplate="header">
+      <span class="header">Invoices</span>
+      <!-- <p-progressSpinner *ngIf="loading" [style]="{width: '30px', height: '30px'}"></p-progressSpinner> -->
+      <tr>
+        <th>Id</th>
+        <th>Issued</th>
+        <th>Total</th>
+      </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-fake>
+      <tr>
+        <td><p-skeleton></p-skeleton></td>
+        <td><p-skeleton></p-skeleton></td>
+        <td><p-skeleton></p-skeleton></td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <ng-template #spinner>
+    <p-table [value]="invoices" selectionMode="single" dataKey="id" responsiveLayout="scroll" [(selection)]="selectedInvoice" #spinner>
+      <ng-template pTemplate="header">
+        <span class="header">Invoices</span>
+        <p-progressSpinner *ngIf="loading" [style]="{width: '30px', height: '30px'}"></p-progressSpinner>
+        <tr>
+          <th>Id</th>
+          <th>Issued</th>
+          <th>Total</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-invoice #spinner>
+        <tr [pSelectableRow]="invoice" (click)="navigateToDetail(invoice)">
+          <td>{{invoice.id}}</td>
+          <td>{{invoice.issued | date: 'shortDate'}}</td>
+          <td>{{invoice.total | number: '1.2-2'}}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-template>
+
+</p-card>

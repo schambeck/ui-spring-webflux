@@ -1,0 +1,7 @@
+<p-card header="Messages">
+  <ng-template ngFor let-message [ngForOf]="messages" let-i="index">
+    <ul>
+      <li>{{i}} {{message}}</li>
+    </ul>
+  </ng-template>
+</p-card>
