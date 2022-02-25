@@ -31,3 +31,5 @@ jobs:
     - run: npm run test-headless
     - name: Deploy gh-pages
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+      with:
+        angular_dist_build_folder: dist/ui-spring-webflux
